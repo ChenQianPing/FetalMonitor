@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="startpage-left" translatesAutoresizingMaskIntoConstraints="NO" id="tvg-Mb-0J1">
+                    <rect key="frame" x="0.0" y="0.0" width="231" height="173"/>
+                </imageView>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="startpage-right" translatesAutoresizingMaskIntoConstraints="NO" id="nJ2-5L-g7Q">
+                    <rect key="frame" x="350" y="321" width="130" height="159"/>
+                </imageView>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="startpage-logo" translatesAutoresizingMaskIntoConstraints="NO" id="gVZ-fR-JXk">
+                    <rect key="frame" x="136" y="191" width="189" height="123"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="tvg-Mb-0J1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="4ei-dL-oeI"/>
+                <constraint firstAttribute="centerX" secondItem="gVZ-fR-JXk" secondAttribute="centerX" id="FAg-FC-KQi"/>
+                <constraint firstAttribute="trailing" secondItem="nJ2-5L-g7Q" secondAttribute="trailing" id="GTG-cF-EyN"/>
+                <constraint firstAttribute="centerY" secondItem="gVZ-fR-JXk" secondAttribute="centerY" id="Lcf-8Y-ttG"/>
+                <constraint firstAttribute="bottom" secondItem="nJ2-5L-g7Q" secondAttribute="bottom" id="aZ5-Ch-Pc4"/>
+                <constraint firstItem="tvg-Mb-0J1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="hRA-IE-BQE"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="548" y="455"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="startpage-left" width="231" height="173"/>
+        <image name="startpage-logo" width="189" height="123"/>
+        <image name="startpage-right" width="130" height="159"/>
+    </resources>
+</document>
