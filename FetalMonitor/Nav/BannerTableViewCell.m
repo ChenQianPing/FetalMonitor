@@ -36,10 +36,15 @@
     
     
     // 网络加载 --- 创建带标题的图片轮播器
-    SDCycleScrollView *cycleScrollView2 = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0,0, screen_width, 180) delegate:self placeholderImage:[UIImage imageNamed:@"placeholder"]];
+    SDCycleScrollView *cycleScrollView2 = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0,0, screen_width, 200) delegate:self placeholderImage:[UIImage imageNamed:@"placeholder"]];
+        
+    /***
+     * 滚动页面调整大一点
+     * Note By:CHENQP 150 -> 200
+     */
     
     cycleScrollView2.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;
-    cycleScrollView2.titlesGroup = titles;
+   // cycleScrollView2.titlesGroup = titles;
     cycleScrollView2.currentPageDotColor = [UIColor whiteColor]; // 自定义分页控件小圆标颜色
     cycleScrollView2.imageURLStringsGroup = imagesURLStrings;
 
@@ -68,10 +73,10 @@
     
     
     // 网络加载 --- 创建带标题的图片轮播器
-    SDCycleScrollView *cycleScrollView2 = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0,0, screen_width, 180) delegate:self placeholderImage:[UIImage imageNamed:@"placeholder"]];
+    SDCycleScrollView *cycleScrollView2 = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0,0, screen_width, 150) delegate:self placeholderImage:[UIImage imageNamed:@"placeholder"]];
     
     cycleScrollView2.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;
-    cycleScrollView2.titlesGroup = titles;
+    //cycleScrollView2.titlesGroup = titles;
     cycleScrollView2.currentPageDotColor = [UIColor whiteColor]; // 自定义分页控件小圆标颜色
     cycleScrollView2.imageURLStringsGroup = imagesURLStrings;
     

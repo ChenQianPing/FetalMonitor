@@ -16,7 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.navigationController.navigationBar.barStyle = UIStatusBarStyleDefault;
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -38,7 +39,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
-    return 7;
+    return 6;
 }
 
 
@@ -49,20 +50,25 @@
     UITableViewCell *clickedCell = [tableView cellForRowAtIndexPath:indexPath];
     
     if([[clickedCell reuseIdentifier] isEqualToString:@"hospitalLoginCell" ]){
-        [self showWebView:@"http://www.zgzqjh.com/Fetus/DoctorLogin"];
+       // [self showWebView:@"http://www.zgzqjh.com/Fetus/DoctorLogin"];
+        [self showWebView:@"http://www.zgzqjh.com/list.aspx?cid=86"];
+       
     }else if([[clickedCell reuseIdentifier] isEqualToString:@"doctorLoginCell" ]){
         [self showWebView:@"http://www.zgzqjh.com/Fetus/DoctorLogin"];
     }
     else if([[clickedCell reuseIdentifier] isEqualToString:@"onlineDemoCell" ]){
-        [self showWebView:@"http://www.zgzqjh.com/Fetus/OnlineDemo"];
+         //[self showWebView:@"http://www.zgzqjh.com/Fetus/OnlineDemo"];
+         [self showWebView:@"http://www.zgzqjh.com/list.aspx?cid=31"];
+       
     }
     else if([[clickedCell reuseIdentifier] isEqualToString:@"pregnantGuideCell" ]){
         [self showWebView:@"http://www.zgzqjh.com/Fetus/Guide"];
     }
+    /*
     else if([[clickedCell reuseIdentifier] isEqualToString:@"otherCell" ]){
         [self showWebView:@"http://www.zgzqjh.com/Fetus/Other"];
     }
-    
+    */
      //   [self showMyRecordView];
         
     

@@ -11,6 +11,7 @@
 #import "PBWebViewController.h"
 #import "MyWebViewController.h"
 #import "PWRecordTableViewController.h"
+#import "GrardianshipMainViewController.h"
 
 @interface PWMemberCenterTableViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *lblDetail;
@@ -35,21 +36,21 @@
     
     [self didAddLabel];
     [self didAddImg];
-
     
     
     
-
+    
+    
 }
 
 -(void)didAddLabel{
-//    NSString * htmlString = @"您的孕周是 19 周 2 天<br/>还有 24 周 1 天就要和宝宝见面了<br/>设备类型：胎心检测<br/>设备设备编号：FD123456<br/>胎儿数量：2 胎 先测左后测右";
+    //    NSString * htmlString = @"您的孕周是 19 周 2 天<br/>还有 24 周 1 天就要和宝宝见面了<br/>设备类型：胎心检测<br/>设备设备编号：FD123456<br/>胎儿数量：2 胎 先测左后测右";
     NSAttributedString * attrStr = [[NSAttributedString alloc] initWithData:[htmlString dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
     
     self.lblDetail.attributedText = attrStr;
 }
 -(void)didAddImg{
-  //  NSString *url = @"/uploads/defaultPhoto.png";
+    //  NSString *url = @"/uploads/defaultPhoto.png";
     NSString *url = self.imgURL;
     
     UIImage *img =   [[WBWeiboAPI shareWeiboApi] getImageFromURL:url];
@@ -67,36 +68,39 @@
     
     // PWRecordListModel *poiM = _dataSource[indexPath.row];
     
-   UITableViewCell *clickedCell = [tableView cellForRowAtIndexPath:indexPath];
- 
+    UITableViewCell *clickedCell = [tableView cellForRowAtIndexPath:indexPath];
+    
     if([[clickedCell reuseIdentifier] isEqualToString:@"myHospitalCell" ]){
         [self showWebView:@"http://www.zgzqjh.com/FetusMember/MyHospital"];
     }else if([[clickedCell reuseIdentifier] isEqualToString:@"myDoctorCell" ]){
         [self showWebView:@"http://www.zgzqjh.com/FetusMember/MyDoctor"];
     }
-    
-else if([[clickedCell reuseIdentifier] isEqualToString:@"myFamilyMemberCell" ]){
-    [self showWebView:@"http://www.zgzqjh.com/FetusMember/Family"];
-}
-else if([[clickedCell reuseIdentifier] isEqualToString:@"myChangePwdCell" ]){
-    [self showWebView:@"http://www.zgzqjh.com/FetusMember/Modify"];
-}
-else if([[clickedCell reuseIdentifier] isEqualToString:@"myDoctorPointCell" ]){
-    [self showWebView:@"http://www.zgzqjh.com/FetusMember/Score"];
-}
-else if([[clickedCell reuseIdentifier] isEqualToString:@"myAdviceCell" ]){
-    [self showWebView:@"http://www.zgzqjh.com/FetusMember/Jianyi"];
-}
-else if([[clickedCell reuseIdentifier] isEqualToString:@"myRecordCell" ]){
-    
-    [self showMyRecordView];
-
-}
+    else if ([[clickedCell reuseIdentifier] isEqualToString:@"startMonitorCell"])
+    {
+        [self forwardDeviceConnectView];
+    }
+    else if([[clickedCell reuseIdentifier] isEqualToString:@"myFamilyMemberCell" ]){
+        [self showWebView:@"http://www.zgzqjh.com/FetusMember/Family"];
+    }
+    else if([[clickedCell reuseIdentifier] isEqualToString:@"myChangePwdCell" ]){
+        [self showWebView:@"http://www.zgzqjh.com/FetusMember/Modify"];
+    }
+    else if([[clickedCell reuseIdentifier] isEqualToString:@"myDoctorPointCell" ]){
+        [self showWebView:@"http://www.zgzqjh.com/FetusMember/Score"];
+    }
+    else if([[clickedCell reuseIdentifier] isEqualToString:@"myAdviceCell" ]){
+        [self showWebView:@"http://www.zgzqjh.com/FetusMember/Jianyi"];
+    }
+    else if([[clickedCell reuseIdentifier] isEqualToString:@"myRecordCell" ]){
+        
+        [self showMyRecordView];
+        
+    }
 }
 
 -(void)showWebView:(NSString *)url{
-  //  MyWebViewController *vc = [[MyWebViewController alloc] init];
-   MyWebViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"myWebView"];
+    //  MyWebViewController *vc = [[MyWebViewController alloc] init];
+    MyWebViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"myWebView"];
     vc.url = url;
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -108,58 +112,66 @@ else if([[clickedCell reuseIdentifier] isEqualToString:@"myRecordCell" ]){
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
+-(void)forwardDeviceConnectView
+{
+    self.hidesBottomBarWhenPushed = YES;
+    GrardianshipMainViewController *vc = [[GrardianshipMainViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+    self.hidesBottomBarWhenPushed = NO;
 }
-*/
 
 /*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+ - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+ UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+ 
+ // Configure the cell...
+ 
+ return cell;
+ }
+ */
 
 /*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
 
 /*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ // Delete the row from the data source
+ [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+ }
+ }
+ */
 
 /*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+ }
+ */
 
 /*
-#pragma mark - Navigation
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+/*
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

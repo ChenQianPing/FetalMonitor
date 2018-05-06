@@ -12,7 +12,7 @@
 #import "MBProgressHUD.h"
 #import "PWinfo.h"
 #import "AppDelegate.h"
-
+#import "GrardianshipMainViewController.h"
 
 #define PW_machineNo @"pw_machineNo"
 #define PW_userName      @"pw_userName"
@@ -78,7 +78,6 @@
     }
 }
 - (IBAction)btnLogin:(UIBarButtonItem *)sender {
-
    // NSString *machineNo = self.mach
     NSString *machineNo = [self.machineNo text];
     NSString *userName = [self.userName text];
@@ -101,8 +100,7 @@
                 //success
                 // [MBProgressHUD hideHUDForView:self.view animated:YES];
                 
-                self.imgURL =[dic objectForKey:@"Userimager"];
-                self.htmlString = @"您的孕周是 <span style='color:#f19393'>19</span> 周 <span style='color:#f19393'>2</span> 天<br/>还有 <span style='color:#f19393'>24</span> 周<span style='color:#f19393'> 1</span> 天就要和宝宝见面了<br/>设备类型：<span style='color:#f19393'>胎心检测</span><br/>设备设备编号：<span style='color:#02b0e2'>FD123456</span><br/>胎儿数量：<span style='color:#f19393'>2</span> 胎 先测左后测右";
+
                 
                 //存储信息（第一次登陆）
                 NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -117,7 +115,8 @@
 
                 
                 
-                [self performSegueWithIdentifier:@"PWLogin2Detail" sender:nil];
+             //   [self performSegueWithIdentifier:@"PWLogin2Detail" sender:nil];
+                [self forwardDeviceConnectView];
                 
             }else{
                 // error
@@ -134,6 +133,14 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)forwardDeviceConnectView
+{
+    self.hidesBottomBarWhenPushed = YES;
+    GrardianshipMainViewController *vc = [[GrardianshipMainViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+    self.hidesBottomBarWhenPushed = NO;
 }
 
 

@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<head>
+    <link rel="Stylesheet" href="chart.css">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+</head>
+<body>
+    <div class="chart_cvs" id="j_chart_cvs">
+        <canvas class="chart_bg" id="j_cvs_bg"></canvas>
+        <canvas class="chart_wave" id="j_cvs_wave"></canvas>
+        <div id="loading"></div>
+    </div>
+    <script type="text/javascript" src="jquery-1.6.4.min.js"></script>
+    <script type="text/javascript" src="chart-min.js"></script>
+    <script type="text/javascript">
+        var fetalHeartChart = (function ()
+        {
+            var fmCount = 0, oneCMPX,
+            load = function (data, cm, w, h)
+            {
+                oneCMPX = cm;
+                resolve(w, h, data);
+            },
+            resolve = function (w, h, data)
+            {
+                if (!data || data.length == 0) return;
+                var data, size = data.length - 3, samplingRate = data[size], timeLong = data[size + 1], monitorDate = data[size + 2];
+
+                var dataPoints = [];
+                var cvsBg = $("#j_cvs_bg"), cvsWave = $("#j_cvs_wave");
+                for (var i = 0; i < size; i += 4)
+                {
+                    var fm = parseInt(data[i + 3]);
+                    if (fm == 1)
+                    {
+                        fmCount += 1;
+                    }
+                    dataPoints.push([data[i], data[i + 2], fm]);
+                }
+                
+                $("#j_chart_cvs").width(w).height(h);
+                               
+                               Chart({
+                                     bgHolder: cvsBg[0],
+                                     waveHolder: cvsWave[0],
+                                     dataPoints: dataPoints,
+                                     monitorDate: monitorDate,
+                                     timeLong: timeLong,
+                                     samplingRate: samplingRate,
+                                     oneCMPX: oneCMPX,
+                                     // fhr
+                                     fhrMax: 210,
+                                     fhrMin: 60,
+                                     fhrLineColor: "#2993e5",
+                                     // toco
+                                     tocoMax: 100,
+                                     tocoMin: 0,
+                                     tocoLineColor: "#aeaeaf",
+                                     // grid
+                                     gridLineColor: "#fdb3b3",
+                                     coordinateValueColor: "#f2839d",
+                                     fmMarkColor: "#589afe",
+                                     fhrNormalRangeColor: "#fdb3b3",
+                                     fhrNormalRangeAlpha: 30,
+                                     graMinCM: 20,
+                                     cm: 3,
+                                     height: document.getElementById("j_chart_cvs").clientHeight
+                                     }).stroke();
+            },
+            getFmCount = function ()
+            {
+                return fmCount;
+            };
+
+            return {
+                start: load,
+                getFm: getFmCount
+            };
+        } ());
+        </script>
+</body>
+</html>

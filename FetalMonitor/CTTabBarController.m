@@ -24,12 +24,12 @@
     [self.tabBar addSubview:customTabBar];
     
     NSArray *imageNames = [NSArray arrayWithObjects:
-                            @"tabbar-monitor-record-nor", @"tabbar-monitor-record-press",
-                            @"tabbar-monitor-nor", @"tabbar-monitor-press",
                             @"tabbar-website-nor", @"tabbar-website-press",
+                            @"tabbar-monitor-nor", @"tabbar-monitor-press",
+                            @"tabbar-monitor-record-nor", @"tabbar-monitor-record-press",
                             @"tabbar-setting-nor", @"tabbar-setting-press"
                            ,nil];
-    NSArray *texts = [NSArray arrayWithObjects:@"记录", @"监护", @"站点", @"设置", nil];
+    NSArray *texts = [NSArray arrayWithObjects:@"服务", @"监护", @"站点", @"设置", nil];
     
     NSInteger i = 0, count = self.viewControllers.count;
     for(; i < count; i++)

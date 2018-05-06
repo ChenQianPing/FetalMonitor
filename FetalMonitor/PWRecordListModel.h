@@ -31,5 +31,7 @@
 @property (nonatomic, strong) NSNumber *ReplyScore;
 @property (nonatomic, strong) NSString *ReplyText;
 @property (nonatomic, strong) NSString *DoctorComment;
+@property (nonatomic, strong) NSString *Mp3Path;
+@property (nonatomic, strong) NSString *FileName;
 
 @end

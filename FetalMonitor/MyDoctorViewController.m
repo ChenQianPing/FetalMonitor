@@ -49,7 +49,7 @@
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
     
     NSString *headerStr = @"var oldnode=document.getElementsByTagName('header')[0];oldnode.parentNode.removeChild(oldnode);;";
-    [webView stringByEvaluatingJavaScriptFromString:headerStr];
+    //[webView stringByEvaluatingJavaScriptFromString:headerStr];
 }
 
 /*

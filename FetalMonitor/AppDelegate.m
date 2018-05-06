@@ -1,4 +1,5 @@
 #import "AppDelegate.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface AppDelegate ()
 
@@ -6,11 +7,20 @@
 
 @implementation AppDelegate
 
+@synthesize window = _window;
+@synthesize viewController = _viewController;
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    // Override point for customization after application launch.dVisible];
+    [[AVAudioSession sharedInstance]setCategory:AVAudioSessionCategoryPlayback error:nil];
     return YES;
-}
+ 
+    
+
+    }
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

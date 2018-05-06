@@ -7,6 +7,7 @@
 //
 
 #import "PWRecordDetail2TableViewController.h"
+#import "CTChart.h"
 
 @interface PWRecordDetail2TableViewController ()
 
@@ -23,6 +24,17 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    UIBarButtonItem *chartButton =[[UIBarButtonItem alloc] initWithTitle:@"图谱" style:UIBarButtonItemStylePlain target:self action:@selector(forwardChart:)];
+    self.navigationItem.rightBarButtonItem=chartButton;
+}
+
+- (void)forwardChart:(UIButton *)sender
+{
+    self.hidesBottomBarWhenPushed = YES;
+    CTChart *vc = [[CTChart alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+    self.hidesBottomBarWhenPushed = NO;
 }
 
 - (void)didReceiveMemoryWarning {

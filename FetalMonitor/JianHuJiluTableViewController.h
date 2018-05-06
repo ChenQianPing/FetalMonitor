@@ -10,8 +10,8 @@
 #import "SDCycleScrollView.h"
 
 @interface JianHuJiluTableViewController : UITableViewController
-@property (weak, nonatomic) IBOutlet SDCycleScrollView *bannerView;
 
+@property (weak, nonatomic) IBOutlet SDCycleScrollView *bannerView;
 @property (weak, nonatomic) IBOutlet UIView *topview;
 
 @end

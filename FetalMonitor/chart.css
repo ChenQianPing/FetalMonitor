@@ -1,0 +1,39 @@
+﻿.chart_cvs
+{
+    position:relative;
+    width:auto;
+    height:570px;
+    overflow-y: hidden;
+    overflow-x:scroll;
+}
+
+.chart_cvs::-webkit-scrollbar
+{
+    width: 0px;
+    height:6px;
+}
+
+.chart_cvs::-webkit-scrollbar-track:horizontal
+{
+    -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.chart_cvs::-webkit-scrollbar-thumb:horizontal
+{
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    background: rgba(0,0,0,0.8);
+}
+
+.chart_cvs::-webkit-scrollbar-thumb:hover
+{
+    background: rgba(255,0,0,0.4);
+}
+
+.chart_bg, .chart_wave
+{
+    position:absolute;
+}
+

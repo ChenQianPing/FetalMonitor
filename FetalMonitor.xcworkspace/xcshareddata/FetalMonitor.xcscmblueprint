@@ -1,0 +1,32 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "234ACF1C008720DB6BFC176A5CFAAB70750B6984",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "ebaf86ef-87d7-4397-86af-a9a1de6c67b0" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "234ACF1C008720DB6BFC176A5CFAAB70750B6984" : 0,
+    "ebaf86ef-87d7-4397-86af-a9a1de6c67b0" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "EF768338-5358-4EE0-B968-957D0DAA5029",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "234ACF1C008720DB6BFC176A5CFAAB70750B6984" : "FetalMonitor_ios-1\/",
+    "ebaf86ef-87d7-4397-86af-a9a1de6c67b0" : "..\/bhj_ios\/bhj_ios"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "FetalMonitor",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "FetalMonitor.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/mrhexin\/FetalMonitor2.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "234ACF1C008720DB6BFC176A5CFAAB70750B6984"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/code.taobao.org\/svn\/bhj_ios",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "ebaf86ef-87d7-4397-86af-a9a1de6c67b0"
+    }
+  ]
+}

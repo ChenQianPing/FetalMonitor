@@ -35,7 +35,8 @@
         
         [scrollView addSubview:_backView1];
        // [scrollView addSubview:_backView2];
-        [self addSubview:scrollView];
+      //  [self addSubview:scrollView];
+         [self addSubview:_backView1];
         
         
         
